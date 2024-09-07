@@ -1,0 +1,1 @@
+Hi, I am writing this file from a js code!
