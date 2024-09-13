@@ -18,5 +18,8 @@
 
 function getTask(){
     const task = document.querySelector("input");
-    document.querySelector("ul").innerHTML = document.querySelector("ul").innerHTML + `<li>${task.value}</li>`
+    if(task.value !=""){
+        document.querySelector("ul").innerHTML = document.querySelector("ul").innerHTML + `<li>${task.value}</li>`;  
+        task.value="";
+    }
 }

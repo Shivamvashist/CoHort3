@@ -1,0 +1,16 @@
+.TaskEl{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 250px;
+}
+.TaskEl input{
+    flex:1
+}
+.TaskEl h1{
+    flex:8
+}
+.TaskEl button{
+    flex:1
+}
