@@ -1,0 +1,4 @@
+Create a cli
+
+Input - node index.js /Users/kirat/file.txt
+Output - You have 10 words in this file
