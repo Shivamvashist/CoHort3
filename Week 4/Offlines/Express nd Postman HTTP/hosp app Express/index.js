@@ -11,11 +11,11 @@ var users = [{
     },{
         healthy:true
     },{
-        healthy:true
+        healthy:false
     },{
         healthy:false
     },{
-        healthy:true
+        healthy:false
     },{
         healthy:true
     },{
@@ -61,31 +61,17 @@ app.put("/",function(req,res){
 })
 
 app.delete("/",function(req,res){
+    const newKidneys = [];
     let totalKidneys = users[0].Kidneys;
     for(let i=0;i< totalKidneys.length;i++){
-        if(!users[0].Kidneys[i].healthy){
-            // users[0].Kidneys[i] = {healthy:true}
-            users[0].Kidneys.splice(i,1)
+        if(users[0].Kidneys[i].healthy){
+            newKidneys.push({healthy:true})
         }
-        
     }
+    users[0].Kidneys = newKidneys;
     res.json({msg : "unHealthy kidneys has been removed"})
 })
 
-// console.log(users[0].Kidneys);
 
-// const totalKidneys = users[0].Kidneys;
-// for(let i=0;i< totalKidneys.length;i++){
-//     if(!users[0].Kidneys[i].healthy){
-//         // users[0].Kidneys[i] = {healthy:true}
-
-//         users[0].Kidneys.splice(i,1)
-//     }else{
-
-//     }
-    
-// }
-
-// console.log(users[0].Kidneys);
 
 app.listen(3001);
