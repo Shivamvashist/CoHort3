@@ -10,6 +10,16 @@ var users = [{
         healthy:false
     },{
         healthy:true
+    },{
+        healthy:true
+    },{
+        healthy:false
+    },{
+        healthy:true
+    },{
+        healthy:true
+    },{
+        healthy:false
     }]
 
 }]
@@ -51,28 +61,31 @@ app.put("/",function(req,res){
 })
 
 app.delete("/",function(req,res){
-    const totalKidneys = users[0].Kidneys;
+    let totalKidneys = users[0].Kidneys;
     for(let i=0;i< totalKidneys.length;i++){
-        if(users[0].Kidneys[i].healthy){
+        if(!users[0].Kidneys[i].healthy){
             // users[0].Kidneys[i] = {healthy:true}
-            res.json({msg:"true"})
-        }else{
-            res.json({msg:"false"})
+            users[0].Kidneys.splice(i,1)
         }
         
     }
+    res.json({msg : "unHealthy kidneys has been removed"})
 })
 
-const totalKidneys = users[0].Kidneys;
-for(let i=0;i< totalKidneys.length;i++){
-    if(users[0].Kidneys[i].healthy){
-        // users[0].Kidneys[i] = {healthy:true}
-        console.log(`{msg:"true"}`)
-    }else{
-        console.log(`{msg:"false"}`)
-    }
-    
-}
+// console.log(users[0].Kidneys);
 
-// console.log(users[0].Kidneys[0].healthy);
-app.listen(3000);
+// const totalKidneys = users[0].Kidneys;
+// for(let i=0;i< totalKidneys.length;i++){
+//     if(!users[0].Kidneys[i].healthy){
+//         // users[0].Kidneys[i] = {healthy:true}
+
+//         users[0].Kidneys.splice(i,1)
+//     }else{
+
+//     }
+    
+// }
+
+// console.log(users[0].Kidneys);
+
+app.listen(3001);
