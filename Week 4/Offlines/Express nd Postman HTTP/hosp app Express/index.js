@@ -41,11 +41,38 @@ app.post("/",function(req,res) {
 })
 
 app.put("/",function(req,res){
-
+    const totalKidneys = users[0].Kidneys.length;
+    for(let i=0;i< totalKidneys;i++){
+        users[0].Kidneys[i] = {healthy:true}
+    }
+    res.json({
+        msg : "Kidneys has been healed!"
+    })
 })
 
 app.delete("/",function(req,res){
-
+    const totalKidneys = users[0].Kidneys;
+    for(let i=0;i< totalKidneys.length;i++){
+        if(users[0].Kidneys[i].healthy){
+            // users[0].Kidneys[i] = {healthy:true}
+            res.json({msg:"true"})
+        }else{
+            res.json({msg:"false"})
+        }
+        
+    }
 })
 
+const totalKidneys = users[0].Kidneys;
+for(let i=0;i< totalKidneys.length;i++){
+    if(users[0].Kidneys[i].healthy){
+        // users[0].Kidneys[i] = {healthy:true}
+        console.log(`{msg:"true"}`)
+    }else{
+        console.log(`{msg:"false"}`)
+    }
+    
+}
+
+// console.log(users[0].Kidneys[0].healthy);
 app.listen(3000);
