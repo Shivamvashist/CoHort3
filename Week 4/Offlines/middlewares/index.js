@@ -19,14 +19,17 @@ function isOldEnoughMiddleware(req,res,next){
         })
     }
 }
+// If any middleware is need to be used in all next midlewares then use => app.use(<middleware name>)
 
-app.get("/ride1",isOldEnoughMiddleware, function(req,res){
+app.use(isOldEnoughMiddleware);
+
+app.get("/ride1", function(req,res){
     res.json({
         msg: "You have Successfully riden the Ride 1 !"
     })
 })
 
-app.get("/ride2",isOldEnoughMiddleware, function(req,res){
+app.get("/ride2", function(req,res){
     res.json({
         msg: "You have Successfully riden the Ride 2 !"
     })
