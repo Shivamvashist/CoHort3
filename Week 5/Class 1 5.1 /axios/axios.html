@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    Axios Trial!
+    <div class="axiosData"></div>
+
+    
+    <script>
+        async function getData(){
+            const response = await axios.get("https://jsonplaceholder.org/users/1")
+            document.querySelector(".axiosData").innerHTML= response.data.firstname
+        }
+
+        getData()
+    // use (.data) after the response and before next node.
+    </script>
+</body>
+</html>

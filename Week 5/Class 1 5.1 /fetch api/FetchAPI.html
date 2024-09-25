@@ -10,7 +10,14 @@
     <div class="api"></div>
 
     <script>
-    
+        async function getData(){
+            const receivedData = await fetch("https://jsonplaceholder.org/users/1",{
+                method : "GET"
+            })
+            const data = await receivedData.json();
+            document.querySelector(".api").innerHTML = data.login.username;
+        }
+        getData();
 
     </script>
  </body>
