@@ -2,9 +2,9 @@ const express = require("express");
 
 const app = express();
 
-const users = [];
+// const users = [];
 
-// const users = [{"username":"shi","password":"123"},{"username":"shi","password":"12323231"},{"username":"shivam","password":"123"},{"username":"shivam2","password":"123123"},{"username":"shiv","password":"123123123"}];
+const users = [{"username":"shi","password":"123"},{"username":"shi","password":"12323231"},{"username":"shivam","password":"123"},{"username":"shivam2","password":"123123"},{"username":"shiv","password":"123123123"}];
 
 // let users = [{
 //     name:"John",
@@ -69,9 +69,26 @@ app.post("/signin",function(req,res){
     }
 })
 
+app.get("/me",function(req,res){
+    const token = req.headers.token;
+    const findUser = users.find(user => user.token == token);
+    if(findUser){
+        res.json({
+            username:findUser.username,
+            password:findUser.password
+        })
+    }else{
+        res.status(403).json({
+            msg:"token invalid!"
+        })
+    }
+})
+
 app.get("/admin",(req,res)=>{
     res.send(users);
 })
+
+
 
 
 app.listen(3000);
