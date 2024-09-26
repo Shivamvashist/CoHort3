@@ -1,9 +1,20 @@
 const express = require("express");
 
 const app = new express;
-
-app.get("/",function(req,res){
+let requests = 0;
+function noOfRequests(req,res,next){
     
+    requests += 1;
+    console.log(requests)
+    next();
+}
+
+app.use(noOfRequests);
+
+// app.get("/",noOfRequests,function(req,res){
+app.get("/",function(req,res){
+    const a = Number(req.query.a);
+    const b = Number(req.query.b);
     res.send("Express calc")
 })
 
