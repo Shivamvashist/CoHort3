@@ -26,12 +26,6 @@ function requestInfo(req,res,next){
 
 
 
-
-
-
-
-
-
 app.get("/admin",function(req,res){
     res.json({
         "Total Requests" : `${requests}`
@@ -39,12 +33,6 @@ app.get("/admin",function(req,res){
 
     })
 })
-
-
-
-
-
-
 
 
 
