@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <input id="a" type="text" placeholder="First Value">
+    <input id="b" type="text" placeholder="Second Value">
+
+    
+    <label>
+        <button onclick="sendRequest()">Send</button><br>
+        Answer :
+        <input id="c" type="text" placeholder="Answer">
+    </label>
+
+
+
+    <script>
+        async function sendRequest(){
+            const app = await axios.post("http://localhost:3000/sum",{
+                a: document.getElementById("a").value ,
+                b: document.getElementById("b").value
+            })
+            document.getElementById("c").value = app.data.answer
+        }
+    </script>
+</body>
+</html>
