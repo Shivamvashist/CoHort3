@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth Website</title>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
 </head>
 <body>
     <div class="container">
         Signup
-        <input type="text" name="username" placeholder="Username">
-        <input type="text" name="password" placeholder="Password">
+        <input id="signupUser" type="text" name="username" placeholder="Username">
+        <input id="signupPass" type="text" name="password" placeholder="Password">
         <button onclick="signup()">Signup</button>
     </div>
     <div class="container2"></div>
         Signin
-        <input type="text" name="username" placeholder="Username">
-        <input type="text" name="password" placeholder="Password">
+        <input id="signinUser" type="text" name="username" placeholder="Username">
+        <input id="signinPass" type="text" name="password" placeholder="Password">
         <button onclick="signin()">Signin</button>
     </div>
     <div class="Container3">
         User Information:
         <div class="information"></div>
+        <button class="getAdmin" onclick="getdata()">admin</button>
     </div>
     <div class="container4">
         <button onclick="logout()">Logout</button>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

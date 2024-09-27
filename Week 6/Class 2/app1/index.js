@@ -2,11 +2,13 @@
 
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const app = express();
 const JWT_PROMISE = "himynameisshivam";
 
 app.use(express.json());
+app.use(cors());
 
 // function AuthMid(req,res,next){
 //     const token = req.header.token;
