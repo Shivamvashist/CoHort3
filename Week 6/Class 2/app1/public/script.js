@@ -19,13 +19,37 @@ async function signin(){
         password:password
     })
 
-    localStorage.setItem("token",command.data.token)
+    localStorage.setItem("token", command.data.token)
 
     alert(command.data.msg)
 
 
 }
 
-async function getdata(){
-    const app = axios.get("http://localhost:3000/admin")
+async function getAdminData(){
+    const app =await axios.get("http://localhost:3000/admin",{
+        headers:{
+            "token" : localStorage.getItem("token")
+        }
+    })
+    const db = app.data.users;
+    const db2 = JSON.stringify(db,null,2)
+    document.querySelector(".information").innerHTML = db2
+}
+
+async function getUserData() {
+    const response = await axios.get("http://localhost:3000/me2",{
+        headers:{
+            token : localStorage.getItem("token")
+        }
+    })
+    // localStorage.setItem("username",response.data.username)
+
+    document.querySelector(".information").innerHTML = response.data.username
+
+}
+
+function logout(){
+    localStorage.removeItem("token");
+    document.querySelector(".information").innerHTML = ""
 }

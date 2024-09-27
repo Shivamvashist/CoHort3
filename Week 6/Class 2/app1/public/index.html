@@ -11,19 +11,20 @@
     <div class="container">
         Signup
         <input id="signupUser" type="text" name="username" placeholder="Username">
-        <input id="signupPass" type="text" name="password" placeholder="Password">
+        <input id="signupPass" type="password" name="password" placeholder="Password">
         <button onclick="signup()">Signup</button>
     </div>
     <div class="container2"></div>
         Signin
         <input id="signinUser" type="text" name="username" placeholder="Username">
-        <input id="signinPass" type="text" name="password" placeholder="Password">
+        <input id="signinPass" type="password" name="password" placeholder="Password">
         <button onclick="signin()">Signin</button>
     </div>
     <div class="Container3">
         User Information:
         <div class="information"></div>
-        <button class="getAdmin" onclick="getdata()">admin</button>
+        <button class="getAdmin" onclick="getAdminData()">admin</button>
+        <button class="getAdmin" onclick="getUserData()">user</button>
     </div>
     <div class="container4">
         <button onclick="logout()">Logout</button>
