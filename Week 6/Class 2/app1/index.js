@@ -23,6 +23,20 @@ app.use(express.json());
 //     }
 // }
 
+function auth(req,res,next){
+    const token = req.headers.token
+    const decodeInfo = jwt.verify(token,JWT_PROMISE)
+    const decodedusername = decodeInfo.username;
+    if(decodedusername){
+        req.username=decodedusername //sending data to next middleware
+        next()
+    }else{
+        res.json({
+            msg:"You are not logged in!"
+        })
+    }
+}
+
 const users=[];
 
 app.post("/signup",function(req,res){
@@ -64,26 +78,33 @@ app.post("/signin",function(req,res){
     }
 })
 
-app.get("/me",function(req,res){
-    const token = req.headers.token
-    const decodeInfo = jwt.verify(token,JWT_PROMISE)
-    const decodedusername = decodeInfo.username;
-    // const findUser = users.find(user=>user.username===decodedusername)
-    if(!decodedusername){
-        res.json({
-            msg : "invalid Token"
-        })
+// app.get("/me",function(req,res){
+//     const token = req.headers.token
+//     const decodeInfo = jwt.verify(token,JWT_PROMISE)
+//     const decodedusername = decodeInfo.username;
+//     // const findUser = users.find(user=>user.username===decodedusername)
+//     if(!decodedusername){
+//         res.json({
+//             msg : "invalid Token"
+//         })
         
-    }else{
-        res.json({
-            username:decodedusername,
-            msg:"Session continues"
-        })
-    }
+//     }else{
+//         res.json({
+//             username:decodedusername,
+//             msg:"Session continues"
+//         })
+//     }
     
+// })
+
+app.get("/me2",auth,function(req,res){
+    res.json({
+        username:req.username,
+        msg:"Session continues"
+    })
 })
 
-app.get("/admin",function(req,res){
+app.get("/admin",auth,function(req,res){
     res.json({
         users
     })
