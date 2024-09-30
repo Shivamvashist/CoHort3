@@ -34,18 +34,49 @@ app.post("/signup",async function(req,res){
 
 })
 
-app.post("/signin",function(req,res){
-    const username = req.body.username;
+app.post("/signin",async function(req,res){
+    const email = req.body.email;
     const password = req.body.password;
 
-    UserModel.findOne({
-        email:
+    const finduser = await UserModel.findOne({
+        email:email,
+        password:password
     })
+    const id = finduser._id;
+
+    if(finduser){
+        const token= jwt.sign({id},JWT_SECRET);
+        res.header("authorization",token)
+        res.json({
+            msg:"Logged in!",
+            token:token
+        })
+        
+    }
 
 })
 
-app.post("/todo",auth,function(req,res){
+function auth(req,res,next){
+    const token = req.header.authorization;
 
+    console.log(token);
+    const decoded = jwt.verify(token,JWT_SECRET);
+    if (decoded){
+        req._id = decoded._id;
+        next();
+
+    } else {
+        res.status(403).json({
+            msg:"invalid credentials!"
+        })
+    }
+ 
+}
+
+app.post("/todo",auth,function(req,res){
+    res.send({
+        msg:"you are authorized!"
+    })
 })
 
 app.get("/todos",auth,function(req,res){
