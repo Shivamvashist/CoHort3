@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const ObjectId = mongoose.ObjectId;
 
 const User = new Schema({
-    username: String,
     email: String,
-    name: String,
-    Password: String
+    username: String,
+    password: String
 })
 
 const todo = new Schema({
@@ -16,7 +15,7 @@ const todo = new Schema({
 })
 
 const UserModel = mongoose.model("users",User);
-const TodoModel = mongoose.model("tdos",todo);
+const TodoModel = mongoose.model("todos",todo);
 
 module.exports = {
     UserModel: UserModel,
