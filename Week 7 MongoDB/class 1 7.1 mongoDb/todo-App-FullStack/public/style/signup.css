@@ -24,6 +24,9 @@ body{
 .container input{
     height: 20px;
     margin-bottom: 20px;
-    border: 2px solid white;
+    border: 2px solid red;
+}
+button{
+    padding: 20px 80px;
 }
 
