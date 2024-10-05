@@ -17,16 +17,20 @@ body{
     align-items: center;
     justify-content: center;
 
-
+    background-color: rgb(66, 54, 54);
 
 }
 
 .container input{
     height: 20px;
     margin-bottom: 20px;
-    border: 2px solid red;
+    border: 0;
+    border-radius: 20px;
+    padding:10px
 }
 button{
     padding: 20px 80px;
+    border-radius: 20px;
+    border: 0;
 }
 
