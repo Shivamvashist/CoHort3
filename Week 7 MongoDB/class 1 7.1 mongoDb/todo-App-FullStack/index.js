@@ -35,16 +35,17 @@ app.post("/signup",async function(req,res){
 })
 
 app.post("/signin",async function(req,res){
-    const email = req.body.email;
+    const username = req.body.username;
     const password = req.body.password;
 
     const finduser = await UserModel.findOne({
-        email:email,
+        username:username,
         password:password
     })
-    const id = finduser._id;
+    
 
     if(finduser){
+        const id = finduser._id;
         const token= jwt.sign({id},JWT_SECRET);
         res.header("authorization",token)
         res.json({

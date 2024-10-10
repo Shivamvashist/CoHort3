@@ -4,5 +4,5 @@ async function Signup(){
         username : document.querySelector(".usernameInp").value,
         password : document.querySelector(".passwordInp").value
     })
-    alert("Hello! I am an alert box!!");
+    alert(response.data.msg);
 }
