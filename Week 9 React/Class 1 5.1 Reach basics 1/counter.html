@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter </title>
+</head>
+<body>
+    <button onclick="addCount()" class="counterBtn">Counter 0</button>
+
+    <script>
+        function addCount(){
+            const currentValue = document.querySelector(".counterBtn").innerHTML;
+            const currentCount = currentValue.split(" ")[1];
+            const newCount = Number(currentCount)+1;
+            document.querySelector(".counterBtn").innerHTML = `Counter ${newCount}`;
+        }
+    </script>
+</body>
+</html>
