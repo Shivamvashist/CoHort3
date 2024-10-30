@@ -1,6 +1,19 @@
 
 function App() {
-  
+
+  const todos = [{
+    title:"Go to gym",
+    done: false,
+    key:1
+  },{
+    title:"Eat food",
+    done: true,
+    key:2
+  }];
+
+  const todocomponent = todos.map(todo => <Todo key={todo.key} title={todo.title} done={todo.done}/> )
+
+  console.log(todocomponent)
   return <div>
     <Card>
       <h1>Header</h1>
@@ -14,8 +27,22 @@ function App() {
       <textarea></textarea>
       <p>This is some another content.</p>
     </Card2>
+    {todocomponent}
+
   </div>
 
+}
+
+function Todo({title,done}){
+  return <div style={{
+    border:'1px solid #ccc',
+    borderRadius:'5px',
+    padding:'20px',
+    margin:'10px',
+    boxShadow: '2px 2px 5px rgba(0,0,0,0.3)',
+  }}>
+    {title} - {done ? "Done!" : "Not Done!"}
+  </div>
 }
 
 function Card( {children} ) {
@@ -43,5 +70,7 @@ function Card2({children}){
     {children}
   </div>
 }
+
+
 
 export default App
