@@ -40,7 +40,7 @@ function App() {
 
 
   return (
-    <div style={{backgroundColor:"#dfe6e9",height:"100vh"}}>
+    <div style={{backgroundColor:"#dfe6e9",height:"100%"}}>
       <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",gap:20}}>
       <button onClick={addPostFn} >Add post</button>
           
