@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React,{useState} from "react"
 function App() {
-  const [count, setCount] = useState(0)
+  const [count,setCount]=useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={{backgroundColor:"#dfe6e9",height:"100vh"}}>
+      <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",gap:20}}>
+          <Postcomponent />
+          <Postcomponent />
+          <Postcomponent />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
+
   )
+}
+
+function Postcomponent(){
+  return <div style={{
+    width:300,
+    borderRadius:10,
+    border:"1px solid black",
+    backgroundColor: "white",
+    padding:20
+  }}>
+    <div style={{display:"flex",gap:16}}>
+      <img src={"https://appx-wsb-gcp.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"} style={{
+        width:40,height:40,borderRadius:20
+      }}/>
+      <div>
+        <b>100xdevs</b>
+        <div>23,888 followers</div>
+        <div>12m</div>
+      </div>
+    </div>
+    <div>What to know and how to win big!</div>
+  </div>
 }
 
 export default App
