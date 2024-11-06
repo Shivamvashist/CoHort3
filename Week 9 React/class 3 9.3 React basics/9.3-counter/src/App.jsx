@@ -15,10 +15,10 @@ function App() {
     setColor(!color)
   },[count])
 
-  let bgclr = "yellow";
-  {color ? bgclr="green" : bgclr="red"}
+  // let bgclr = "yellow";
+  // {color ? bgclr="green" : bgclr="red"}
 
-  return <div style={{height:36,width:40,color:'white',display:'flex',justifyContent:"center",alignItems:"center",borderRadius:20,backgroundColor:bgclr}}>
+  return <div style={{backgroundColor:color ? "red" : "green",height:36,width:40,color:'white',display:'flex',justifyContent:"center",alignItems:"center",borderRadius:20}}>
     {count}
   </div>
 
