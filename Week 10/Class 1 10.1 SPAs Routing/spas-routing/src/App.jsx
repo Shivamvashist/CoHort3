@@ -1,29 +1,33 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter,Routes,Route,Link, useNavigate } from 'react-router-dom'
+import { BrowserRouter,Routes,Route,Link, useNavigate,Outlet } from 'react-router-dom'
 
 function App() {
-
-  // const navigate = useNavigate()
-
-  // useEffect(()=>{
-  //   navigate("/")
-  // },[Class12Program])
 
   return <div>
     {/* <a href="/">Allen</a> | <a href="/neet/online-coaching-class-11">Class 11</a> | <a href="/neet/online-coaching-class-12">Class 12</a> */}
     <BrowserRouter>
-      <Link to="/">Allen</Link> | 
-      <Link to="/neet/online-coaching-class-11">Class 11</Link> | 
-      <Link to="/neet/online-coaching-class-12">Class 12</Link>
       <Routes>
-      <Route path="*" element={<ErrorPage />} />
-      <Route path="/" element={<Landing />} />
-      <Route path="/neet/online-coaching-class-11" element={<Class11Program />} />
-      <Route path="/neet/online-coaching-class-12" element={<Class12Program />} />
+         <Route path="/" element={<Layout/>} >
+          <Route index element={<Landing />} />
+          <Route path="/neet/online-coaching-class-11" element={<Class11Program />} />
+          <Route path="/neet/online-coaching-class-12" element={<Class12Program />} />
+        </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   </div>
 }
+
+function Layout(){
+  return <div>
+    <Link to="/">Allen</Link> | 
+    <Link to="/neet/online-coaching-class-11">Class 11</Link> | 
+    <Link to="/neet/online-coaching-class-12">Class 12</Link>
+    <Outlet />
+  </div>
+ 
+}
+
 
 function ErrorPage(){
 
