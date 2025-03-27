@@ -3,6 +3,10 @@
 function delayedCall(fn) {
     setTimeout(fn, 2000);
 }
-delayedCall(() => {
+let fn1 = () => {
     console.log("Hello");
-});
+};
+delayedCall(fn1);
+// delayedCall(()=>{
+//     console.log("Hello")
+// })

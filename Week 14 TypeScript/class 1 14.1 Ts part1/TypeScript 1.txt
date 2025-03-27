@@ -26,3 +26,9 @@ There are many other famous compilers/transpilers for converting Typescript to J
     esbuild
     
     swc
+
+
+    "rootDir": "./src",          /* Specify the root folder within your source files. */
+    "outDir": "./dist",           /* Specify the folder with complied js files  */
+
+    "noImplicitAny": false, //dont have to give type anymore!!!
