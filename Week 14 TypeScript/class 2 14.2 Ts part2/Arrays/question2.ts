@@ -49,3 +49,19 @@ function FilterUsers(arr:User[]):User[]{
 
 }
 console.log(FilterUsers(Users))
+
+
+/// OR USE .filter DIRECTLY
+
+function FilterUsers2(arr:User[]) {
+    return arr.filter((user)=>user.age > 18);
+}
+
+console.log(FilterUsers2(Users));
+
+
+let a:number[]=[1,2,3,4];
+let b:number[] = a.filter((num)=>num===1); 
+console.log(b)
+
+/// the .filter works on a boolean , when i sent num-1 = it used it to define truthy and falsy and gave back [2,3,4] as 1-1 is 0 and falsy and 2-1 or others are truthy

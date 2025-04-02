@@ -36,3 +36,11 @@ function FilterUsers(arr) {
     return legalUsers;
 }
 console.log(FilterUsers(Users));
+/// OR USE .filter DIRECTLY
+function FilterUsers2(arr) {
+    return arr.filter((user) => user.age > 18);
+}
+console.log(FilterUsers2(Users));
+let a = [1, 2, 3, 4];
+let b = a.filter((num) => num === 1);
+console.log(b);
